@@ -1,0 +1,11 @@
+# Environments
+.env
+env/
+ENV/
+
+# Intellij/PyCharm cfg
+.idea/
+
+# MaC
+*/.DS_Store
+.DS_Store
