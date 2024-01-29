@@ -2,7 +2,7 @@ import unittest
 import io
 import sys
 
-from src.ui.console import print_board
+from src.ui.console.console import print_board
 
 class TestConsole(unittest.TestCase):
      def test_print_board(self):
