@@ -1,6 +1,6 @@
 import unittest
 
-from src.engine.engine import init_board, check_win, check_draw, check_move, make_move
+from src.engine.engine import init_board, check_win, check_draw, check_move, make_move, run_game
 
 class TestEngine(unittest.TestCase):
     def test_initialize_board(self):
@@ -51,3 +51,9 @@ class TestEngine(unittest.TestCase):
         board = init_board()
         make_move(board, (0, 0), 'X')
         self.assertEqual(board[0][0], 'X')
+
+    def test_run_game(self):
+        try:
+            run_game()
+        except Exception as e:
+            self.fail(f"game raised an exception: {e}")

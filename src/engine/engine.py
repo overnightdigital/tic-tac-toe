@@ -25,3 +25,6 @@ def make_move(board, move, player):
     """Makes a move on the board."""
     i, j = move
     board[i][j] = player
+
+def run_game():
+    """Start the game between two bots."""
