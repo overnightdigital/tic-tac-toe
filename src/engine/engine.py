@@ -1,3 +1,7 @@
+import random
+
+from src.ui.console.console import print_board
+
 def init_board():
     """Create a 3x3 matrix represented as a list of lists."""
     return [[" " for _ in range(3)] for _ in range(3)]
@@ -28,3 +32,23 @@ def make_move(board, move, player):
 
 def run_game():
     """Start the game between two bots."""
+    board = init_board()
+    current_player = "X"
+    while True:
+        valid_moves = [(i, j) for i in range(3) for j in range(3) if board[i][j] == " "]
+        if not valid_moves:
+            print("It's a draw!")
+            break
+
+        move = random.choice(valid_moves)
+        make_move(board, move, current_player)
+        print_board(board)
+
+        if check_win(board, current_player):
+            print(f"Player {current_player} wins!")
+            break
+
+        current_player = "O" if current_player == "X" else "X"
+        if check_draw(board):
+            print("It's a draw!")
+            break
