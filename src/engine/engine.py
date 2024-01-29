@@ -15,3 +15,13 @@ def check_win(board, player):
 def check_draw(board):
     """Check if the game is a draw."""
     return all(all(cell != " " for cell in row) for row in board)
+
+def check_move(board, move):
+    """Check if the requested move is valid."""
+    i, j = move
+    return board[i][j] == " "
+
+def make_move(board, move, player):
+    """Makes a move on the board."""
+    i, j = move
+    board[i][j] = player

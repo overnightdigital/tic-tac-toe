@@ -1,6 +1,6 @@
 import unittest
 
-from src.engine.engine import init_board, check_win, check_draw#, check_move, make_move
+from src.engine.engine import init_board, check_win, check_draw, check_move, make_move
 
 class TestEngine(unittest.TestCase):
     def test_initialize_board(self):
@@ -37,3 +37,17 @@ class TestEngine(unittest.TestCase):
         # Non-draw scenario
         board = [['X', ' ', 'X'], [' ', 'O', ' '], [' ', ' ', ' ']]
         self.assertFalse(check_draw(board))
+
+    def test_if_valid_moves(self):
+        board = [['X', 'O', 'X'], [' ', 'X', ' '], [' ', ' ', 'O']]
+        self.assertTrue(check_move(board, (1, 0)))
+        self.assertTrue(check_move(board, (1, 2)))
+        self.assertTrue(check_move(board, (2, 0)))
+        self.assertTrue(check_move(board, (2, 1)))
+        self.assertFalse(check_move(board, (0, 1)))
+        self.assertFalse(check_move(board, (0, 2)))
+
+    def test_make_move(self):
+        board = init_board()
+        make_move(board, (0, 0), 'X')
+        self.assertEqual(board[0][0], 'X')
