@@ -8,7 +8,7 @@ class TestConsole(unittest.TestCase):
      def test_print_board(self):
         board = [['X', 'O', 'X'], ['O', 'X', 'O'], [' ', ' ', 'X']]
 
-        expected_output = "X|O|X\n-----\nO|X|O\n-----\n | |X\n"
+        expected_output = "X|O|X\n-----\nO|X|O\n-----\n | |X\n-----\n"
 
         captured_output = io.StringIO()
         sys.stdout = captured_output
