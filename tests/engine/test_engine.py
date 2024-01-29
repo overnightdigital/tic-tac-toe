@@ -1,6 +1,6 @@
 import unittest
 
-from src.engine.engine import init_board, check_win, check_draw, check_move, make_move
+from src.engine.engine import init_board, check_win, check_draw#, check_move, make_move
 
 class TestEngine(unittest.TestCase):
     def test_initialize_board(self):
