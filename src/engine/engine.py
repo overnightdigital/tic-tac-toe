@@ -25,6 +25,10 @@ def check_move(board, move):
     i, j = move
     return board[i][j] == " "
 
+def get_valid_moves(board):
+    """Get valid moves for the current board."""
+    return [(i, j) for i in range(3) for j in range(3) if board[i][j] == " "]
+
 def make_move(board, move, player):
     """Makes a move on the board."""
     i, j = move
@@ -35,7 +39,7 @@ def run_game():
     board = init_board()
     current_player = "X"
     while True:
-        valid_moves = [(i, j) for i in range(3) for j in range(3) if board[i][j] == " "]
+        valid_moves = get_valid_moves(board)
         if not valid_moves:
             print("It's a draw!")
             break
